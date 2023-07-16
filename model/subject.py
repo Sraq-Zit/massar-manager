@@ -19,6 +19,8 @@ class Subject:
         return self.name
     
     def __hash__(self):
+        if getattr(self, 'id', None) is None:
+            return 0
         return hash(self.id)
     
     def __eq__(self, other: 'Subject'):
